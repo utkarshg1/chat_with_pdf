@@ -7,4 +7,4 @@ langchain-community
 langchain-core
 langchain-groq
 langchain-cohere
-langchain_chroma
+faiss-cpu
