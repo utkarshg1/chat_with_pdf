@@ -1,5 +1,6 @@
 import streamlit as st 
 import os 
+from dotenv import load_dotenv
 from langchain_cohere import CohereEmbeddings
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import PyPDFLoader
@@ -10,8 +11,9 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 
 # Get the api keys in enviroment
-os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
-os.environ["COHERE_API_KEY"] = st.secrets["COHERE_API_KEY"]
+load_dotenv()
+os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+os.environ["COHERE_API_KEY"] = os.getenv("COHERE_API_KEY")
 
 # Setup LLM and embeddings model
 llm = ChatGroq(model='llama3-8b-8192', temperature=0)

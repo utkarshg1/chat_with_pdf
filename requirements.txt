@@ -8,3 +8,4 @@ langchain-core
 langchain-groq
 langchain-cohere
 faiss-cpu
+python-dotenv
